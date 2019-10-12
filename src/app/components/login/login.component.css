@@ -1,0 +1,28 @@
+.center{
+   width:auto;
+    margin: 10px auto;
+  }
+  
+  .main-div{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .my-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+   
+  .full-width {
+    width: 100%;
+  }
+  .right {
+    justify-content: flex-end;
+}
+mat-spinner {
+  position: relative;
+  width: 24px; 
+  height: 24px; 
+  margin: 5px 10px 0px 0px;
+}

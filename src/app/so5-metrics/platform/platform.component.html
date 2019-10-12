@@ -1,0 +1,48 @@
+<div [@dialog] *ngIf="visible" class="dialog">
+  <ng-content></ng-content>
+  <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <mat-toolbar>Platform Details</mat-toolbar>
+  <div class="container">
+    <form [formGroup]="newPlatFormDetailsForm">
+      <div class="form-group row">
+        <label for="platformName" class="col-md-2 col-form-label">Platform Name </label>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Platform Name" id="platformName" formControlName="platformName">
+          </mat-form-field>
+          <mat-error *ngIf="submitted && newPlatFormDetailsForm.get('platformName').hasError('required')">
+            Platform Name is required..!
+          </mat-error>
+        </div>
+        <label for="platformLead" class="col-md-2 col-form-label">Platform Lead </label>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput placeholder="Platform Lead" id="platformLead" formControlName="platformLead">
+          </mat-form-field>
+          <mat-error *ngIf="submitted && newPlatFormDetailsForm.get('platformLead').hasError('required')">
+            Platform Lead is required..!
+          </mat-error>
+        </div>
+      </div>
+    </form>
+    <div class="form-group row">
+      <div class="col-md-4"></div>
+      <div class="col-md-2">
+        <button mat-raised-button color="primary" [disabled]="submitted && newPlatFormDetailsForm.invalid"
+          (click)="addDetails();">
+          Add Details
+        </button>
+      </div>
+      <div class="col-md-2">
+        <button mat-raised-button *ngIf="closable" (click)="close()">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div *ngIf="visible" class="overlay"></div>
